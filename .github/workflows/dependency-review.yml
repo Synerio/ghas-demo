@@ -1,6 +1,7 @@
 name: 'Dependency Review'
-on: [pull_request]
-  branches: [ main, master, develop ]
+on: 
+  pull_request:
+    branches: [ main, master, develop ]
 
 
 permissions:
