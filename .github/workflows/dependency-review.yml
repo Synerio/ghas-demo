@@ -1,12 +1,13 @@
 name: 'Dependency Review'
-on: [pull_request]
-  branches: [ main, master, develop ]
-
+on: 
+  pull_request:
+    branches: [ master, main, demo ]
+  push:
+    branches: [ sandbox, dev ]
 
 permissions:
   contents: read
-
-
+  pull-requests: write # so comments can be added on PRs
 
 jobs:
   dependency-review:
@@ -18,7 +19,11 @@ jobs:
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
-          fail-on-severity: moderate
-          deny-licenses: LGPL-2.0, BSD-2-Clause
-          fail-on-scopes: development
-          warn-only: false
+          license-check: true
+          vulnerability-check: true
+          comment-summary-in-pr: always
+          fail-on-severity: critical
+          warn-only: true
+          # deny-licenses is deprecated
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
+          fail-on-scopes: runtime
