@@ -89,6 +89,7 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
+    // blah blah blah, just adding a comment to have a change in the file
     providers: [
         importProvidersFrom(BrowserModule, Routing, TranslateModule.forRoot({
             loader: {
