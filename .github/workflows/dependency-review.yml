@@ -16,14 +16,30 @@ jobs:
       - name: 'Checkout Repository'
         uses: actions/checkout@v4
 
-      - name: Dependency Review
+      - name: Dependency Review (PR)
+        if: github.event_name == 'pull_request'
         uses: actions/dependency-review-action@v4
         with:
           license-check: true
           vulnerability-check: true
           comment-summary-in-pr: always
           fail-on-severity: critical
-          warn-only: true
           # deny-licenses is deprecated
           allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
           fail-on-scopes: runtime
+          warn-only: true
+
+
+      - name: Dependency Review (Push)
+        if: github.event_name == 'push'
+        uses: actions/dependency-review-action@v4
+        with:
+          license-check: true
+          vulnerability-check: true
+          fail-on-severity: critical
+          # deny-licenses is deprecated
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
+          fail-on-scopes: runtime
+          warn-only: false
+          base-ref: master
+          head-ref: ${{ github.ref_name }}
