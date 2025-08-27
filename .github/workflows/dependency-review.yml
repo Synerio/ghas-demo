@@ -25,12 +25,7 @@ jobs:
           comment-summary-in-pr: always
           fail-on-severity: high
           # deny-licenses is deprecated
-          allow-licenses: |
-            Apache-2.0
-            MIT
-            PostgreSQL
-            BSD-3-Clause
-            BSD-2-Clause
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
           fail-on-scopes: runtime
           warn-only: true
 
@@ -43,12 +38,7 @@ jobs:
           vulnerability-check: true
           fail-on-severity: high
           # deny-licenses is deprecated
-          allow-licenses: |
-            Apache-2.0
-            MIT
-            PostgreSQL
-            BSD-3-Clause
-            BSD-2-Clause
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
           fail-on-scopes: runtime
           warn-only: false
           base-ref: master
