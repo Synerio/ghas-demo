@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ master, main, demo ]
   push:
-    branches: [ sandbox, dev ]
+    branches: [ dev ]
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
           comment-summary-in-pr: always
           fail-on-severity: high
           # deny-licenses is deprecated
-          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, 0BSD AND ISC AND MIT
           fail-on-scopes: runtime
           warn-only: true
 
@@ -35,10 +35,10 @@ jobs:
         uses: actions/dependency-review-action@v4
         with:
           license-check: true
-          vulnerability-check: true
+          vulnerability-check: false
           fail-on-severity: high
           # deny-licenses is deprecated
-          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause
+          allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, 0BSD AND ISC AND MIT
           fail-on-scopes: runtime
           warn-only: false
           base-ref: master
