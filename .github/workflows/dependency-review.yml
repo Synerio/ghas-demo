@@ -26,6 +26,7 @@ jobs:
           fail-on-severity: high
           # deny-licenses is deprecated
           allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, 0BSD AND ISC AND MIT
+          allow-dependencies-licenses: pkg:npm/%2540synerio/engage-core
           fail-on-scopes: runtime
           warn-only: true
 
@@ -39,6 +40,7 @@ jobs:
           fail-on-severity: high
           # deny-licenses is deprecated
           allow-licenses: Apache-2.0, MIT, PostgreSQL, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, 0BSD AND ISC AND MIT
+          allow-dependencies-licenses: pkg:npm/%2540synerio/engage-core
           fail-on-scopes: runtime
           warn-only: false
           base-ref: master
